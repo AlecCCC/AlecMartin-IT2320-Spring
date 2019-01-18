@@ -1,0 +1,71 @@
+<html>   
+<head>    
+<title>Grocery Shopping Cost Calculator</title>
+<script>  
+
+var entry;
+var costTotal;    
+var salesTax;
+var taxpercent = .07;
+
+//Get 3 items and their cost, then add the cost with sales tax.
+
+// entry 1:  
+
+entry = prompt("Enter The First Grocery ");   
+  var item1 = entry;
+  entry = prompt("Enter The Cost of The First Grocery ");
+  entry = parseFloat(entry)
+
+  var cost1 = entry;
+  var Fcost1 = cost1.toFixed(2);
+
+// entry 2:  
+entry = prompt("Enter The Second Grocery ");   
+  var item2 = entry;
+  entry = prompt("Enter The Cost of The Second Grocery ");
+  entry = parseFloat(entry)
+
+  var cost2 = entry;
+  var Fcost2 = cost2.toFixed(2);
+
+// entry 3:  
+entry = prompt("Enter The Third Grocery ");   
+  var item3 = entry;
+  entry = prompt("Enter The Cost of The Third Grocery ");
+  entry = parseFloat(entry)
+
+  var cost3 = entry;
+  var Fcost3 = cost3.toFixed(2);
+
+  //SubTotal
+  costTotal = cost1 + cost2 + cost3;
+  var FcostTotal = costTotal.toFixed(2);
+
+  //calculate the Sale tax  rounding to 2 places
+  salesTax = costTotal * taxpercent
+  var FsalesTax = salesTax.toFixed(2); 
+
+  //Calculate the final total and rounding to 2 places
+  grandTotal = salesTax + costTotal
+var FgrandTotal = grandTotal.toFixed(2);
+   
+
+</script>  
+</head>   
+<body>   
+
+<script>  
+// Ouptut the scores:  
+document.write("<h1>Grocery Shopping Cost Calculator</h1>");
+document.write("<h1>Goods 4 You!</h1>"); 
+document.write(item1 +" .............. " + Fcost1 + "<br>" + item2 + " .............. " + Fcost2 + "<br>" + item3 + " .............. " + Fcost3 + "<br>" + "<br>" + 
+    "SUBTOTAL = " + FcostTotal + "<br>" + "<br>" + "SALES TAX @ 7.00%  = " + FsalesTax + "<br>" + "TOTAL .......... " + FgrandTotal + "<br>" + "<br>" );  
+</script>   
+Thanks For Shopping At Goods 4 You!  
+</body>   
+</html>    
+
+
+
+
