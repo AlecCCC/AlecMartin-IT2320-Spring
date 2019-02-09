@@ -1,0 +1,9 @@
+var discountAmount;
+var orderTotal = 200;
+if (orderTotal > 200) {
+    discountAmount = orderTotal * .3;
+} else if (orderTotal > 100) {
+    discountAmount = orderTotal * .2;
+} else {
+    discountAmount = orderTotal * .1;
+}
