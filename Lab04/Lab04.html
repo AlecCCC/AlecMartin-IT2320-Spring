@@ -1,0 +1,164 @@
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+    body { font-family: sans-serif; font-size: 0.8em; }
+    input { font-family: sans-serif; font-size: 1em; }
+    </style>
+
+
+</head>
+<body>
+<form>
+    Operand 1:<br><input type="text" id="operand1" name="operand1">&nbsp;<br><br>
+    Operand 2:<br><input type="text" id="operand2" name="operand1">&nbsp;<br><br>
+    <input type="button" value="+" id="add" name="add">&nbsp;
+    <input type="button" value="-" id="subtract" name="subtract">&nbsp;
+    <input type="button" value="*" id="multiply" name="multiply">&nbsp;
+    <input type="button" value="/" id="divide" name="divide">&nbsp;<br><br>
+    <input type="button" value="Clear" id="Clear" name="clear">&nbsp;<br><br>
+    Result:<br><input type="text" id="Result" name="result" disabled> <input type="text" id="equation" name="equation" disabled>
+</form>
+<script>
+
+        "use strict";
+        var $ = function(id) {
+                    return document.getElementById(id)
+           };
+            var operand1;
+            var operand2;
+
+            //FUNCTIONS//
+            var add = function(operand1,operand2)
+             {
+                var Result = (operand1 + operand2);
+                return Result;
+             };
+
+             var sub = function(operand1,operand2)
+             {
+                var Result = (operand1 - operand2);
+                return Result;
+             };
+
+             var multiply = function(operand1,operand2)
+             {
+                 var Result = (operand1 * operand2)
+                 return Result;
+             }
+
+             var divide = function(operand1,operand2)
+             {
+                 var Result = (operand1 / operand2)
+                 return Result;
+             }
+
+            //END FUNCTIONS//
+
+            var addentries = function()
+            {
+            var operand1 = parseFloat($("operand1").value);
+            var operand2 = parseFloat($("operand2").value);
+
+            if (isNaN(operand1) || isNaN(operand2)) 
+                {
+                    var str = new String("Both entries must be numeric")
+                    document.write(str.fontcolor("red"));
+                }
+                else 
+                {
+                    var sum = add(operand1, operand2);
+                    $("Result").value = sum
+                    $("equation").value = operand1 + " + " + operand2 + " = " + sum;
+      
+                }
+                
+            }
+//////////////////////////////////////////////////
+                var subentries = function()
+            {
+            var operand1 = parseFloat($("operand1").value);
+            var operand2 = parseFloat($("operand2").value);
+
+            if (isNaN(operand1) || isNaN(operand2)) 
+                {
+                    var str = new String("Both entries must be numeric")
+                    document.write(str.fontcolor("red"));
+                }
+                else 
+                {
+                    var difference = sub(operand1, operand2);
+                    $("Result").value = difference
+                    $("equation").value = operand1 + " - " + operand2 + " = " + difference;
+      
+                }
+                
+            }
+//////////////////////////////////////////////////
+            var multiplyentries = function()
+            {
+            var operand1 = parseFloat($("operand1").value);
+            var operand2 = parseFloat($("operand2").value);
+
+            if (isNaN(operand1) || isNaN(operand2)) 
+                {
+                    var str = new String("Both entries must be numeric")
+                    document.write(str.fontcolor("red"));
+
+                }
+                else 
+                {
+                    var product = multiply(operand1, operand2);
+                    $("Result").value = product
+                    $("equation").value = operand1 + " * " + operand2 + " = " + product;
+      
+                }
+                
+            }
+//////////////////////////////////////////////////
+            var divideentries = function()
+            {
+            var operand1 = parseFloat($("operand1").value);
+            var operand2 = parseFloat($("operand2").value);
+
+            if (isNaN(operand1) || isNaN(operand2)) 
+                {
+                    var str = new String("Both entries must be numeric")
+                    document.write(str.fontcolor("red"));
+                }
+                else 
+                {
+                    var reciprocal = divide(operand1, operand2);
+                    $("Result").value = reciprocal
+                    $("equation").value = operand1 + " / " + operand2 + " = " + reciprocal;
+      
+                }
+                
+            }
+//////////////////////////////////////////////////
+
+                //CLEAR FUNCTION//
+            var Clearentries = function()
+            {
+                parseFloat($("operand1").value= "")
+                parseFloat($("operand2").value = "")
+                $("Result").value = "";
+                $("equation").value = "";
+            }           
+                //END CLEAR FUNCTION//
+
+            window.onload = function() 
+            {
+                $("subtract").onclick = subentries;
+                $("add").onclick = addentries;
+                $("multiply").onclick = multiplyentries;
+                $("divide").onclick = divideentries;
+                $("Clear").onclick = Clearentries
+            }
+
+                
+
+               
+        </script>
+</body>
+</html>
