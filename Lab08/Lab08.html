@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<!--title for web page -->
+
+<title>Lab08</title>
+
+<meta charset="utf-8" />
+
+<!-- Include jQuery from a CDN here -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+// Modify the following event to use jQuery's (document).ready function.
+
+$(document).ready(function () {
+
+// Modify the following line of code to use jQuery's .text() method.
+
+$("#footer").text("\u00A9 Cuyahoga Community College");
+
+// Add a .hover event here. Within the .hover, call addClass and removeClass to set the class attribute for programs.
+
+$("li").hover(function () {
+
+
+$(this).addClass("highlight");
+
+t
+
+$("li").mouseleave(function () {
+
+
+$(this).removeClass("highlight");
+
+});
+
+});
+
+
+$("#programs").click(function(){
+
+
+$("#programs").hide();
+
+});
+
+
+
+$("#certificates").click(function(){
+
+
+
+$(this).hide();
+
+})
+
+});
+
+</script>
+
+<!--style -->
+
+<style>
+
+.highlight {
+
+background-color: gold;
+
+}
+
+li {
+
+width: auto;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Tri-C Information Technology</h1>
+
+<div class="info">Under the leadership of College-wide Dean and Executive Director Dr. Monique Wilson, the IT Center of Excellence aims
+
+to increase the number of IT professionals trained for middle-skill careers in Northeast Ohio. The IT Center provides
+
+streamlined pathways toward careers in these areas and others while being more responsive to the needs of both industry
+
+and community partners. New certificate programs in data analytics, cloud computing and data center management were
+
+rolled out in fall 2015 along with a graduate certificate in cyber security analytics.
+
+</div>
+
+<h2>Degree Programs</h2>
+
+<div id="programs">
+
+<ul>
+
+<li>Computer Networking Hardware</li>
+
+<li>Computer Networking Software</li>
+
+<li>Programming & Development</li>
+
+<li>Buiness Solutions</li>
+
+</ul>
+
+</div>
+
+<h2>Certificates</h2>
+
+<div id="certificates">
+
+<ul>
+
+<li>Mobile Application Development</li>
+
+<li>Web Application Programming</li>
+
+<li>Programming & Development - Post-Degree</li>
+
+<li>Buiness Solutions - Post-Degree</li>
+
+</ul>
+
+</div>
+
+<!-- Add a form that allows users to enter their email address here -->
+
+<form id="email_form" name="email_form"
+    action="join.html" method="get">
+
+<label for ="email_address">Email Address</label>
+<input type="text" id= "email_address">
+</form>
+
+<p></p>
+
+<div id="footer">
+
+</div>
+
+</body>
+
+</html>
