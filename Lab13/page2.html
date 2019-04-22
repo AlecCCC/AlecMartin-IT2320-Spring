@@ -1,19 +1,87 @@
-<!DOCTYPE html>
 <html>
+
 <head>
+
 <title>Page 2</title>
+
+<script src="page.js"></script>
+
 </head>
+
 <body>
 
 <h1>This is page 2</h1>
 
-<input type = "button" id="page2" value= "Go to page 1" onclick="back()">
+<input type="button" id="page2" value="Go to page 1" onclick="pageRedirect()">
+
+<div>Number of time entered : <span id="spCount"></span></div>
 
 <script>
-function back() {
-    window.history.back(history.length);
-}   
+
+function pageRedirect() {
+
+location.replace("page1.html");
+
+}
+
+window.onload = () => {
+
+var count = getCookieByName("page1") || 0;
+
+count = Number(count);
+
+setCookie("page1", ++count);
+
+document.getElementById("spCount").innerText = count;
+
+}
+
+
+
+
+
+function getCookieByName(cname) {
+
+var name = cname + "=";
+
+var ca = document.cookie.split(';');
+
+for (var i = 0; i < ca.length; i++) {
+
+var c = ca[i];
+
+while (c.charAt(0) == ' ') {
+
+c = c.substring(1);
+
+}
+
+if (c.indexOf(name) == 0) {
+
+return c.substring(name.length, c.length);
+
+}
+
+}
+
+return null;
+
+}
+
+function setCookie(name, value) {
+
+var d = new Date();
+
+d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
+
+var expires = "expires=" + d.toUTCString();
+
+document.cookie = name + "=" + value + ";" + expires + ";path=/";
+
+}
 
 </script>
+
 </body>
+
 </html>

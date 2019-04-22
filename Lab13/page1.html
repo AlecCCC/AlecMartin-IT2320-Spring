@@ -1,33 +1,88 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
 <title>Page 1</title>
+
+<script src="page.js"></script>
+
 </head>
+
 <body>
 
 <h1>This is page 1</h1>
 
-<input type = "button" id="page2" value= "Go to page 2" onclick="pageRedirect()">
-<input type = "button" id="hits" value= "View hits" onclick="hits()">
+<input type="button" id="page2" value="Go to page 2" onclick="pageRedirect()">
+
+<div>Number of time entered : <span id="spCount"></span></div>
 
 <script>
-    history.length
+
 function pageRedirect() {
+
 location.replace("page2.html");
-}   
-
-function hits() {
-$(document).ready(function(hits) {
-    if (localStorage.hits) {
-        localStorage.hits = parseInt(localStorage.hits) + 1;
-    } else {localStorage.hits = 1;}
-
-    alert("Number of clicks this browser") + localStorage.hits
-
-});
 
 }
 
+window.onload = () => {
+
+var count = getCookieByName("page2") || 0;
+
+count = Number(count);
+
+setCookie("page2", ++count);
+
+document.getElementById("spCount").innerText = count;
+
+}
+
+
+
+function getCookieByName(cname) {
+
+var name = cname + "=";
+
+var ca = document.cookie.split(';');
+
+for (var i = 0; i < ca.length; i++) {
+
+var c = ca[i];
+
+while (c.charAt(0) == ' ') {
+
+c = c.substring(1);
+
+}
+
+if (c.indexOf(name) == 0) {
+
+return c.substring(name.length, c.length);
+
+}
+
+}
+
+return null;
+
+}
+
+function setCookie(name, value) {
+
+var d = new Date();
+
+d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
+
+var expires = "expires=" + d.toUTCString();
+
+document.cookie = name + "=" + value + ";" + expires + ";path=/";
+
+}
+
+
 </script>
+
 </body>
+
 </html>
