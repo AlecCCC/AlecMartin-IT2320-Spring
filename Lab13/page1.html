@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page 1</title>
+</head>
+<body>
+
+<h1>This is page 1</h1>
+
+<input type = "button" id="page2" value= "Go to page 2" onclick="pageRedirect()">
+<input type = "button" id="hits" value= "View hits" onclick="hits()">
+
+<script>
+    history.length
+function pageRedirect() {
+location.replace("page2.html");
+}   
+
+function hits() {
+$(document).ready(function(hits) {
+    if (localStorage.hits) {
+        localStorage.hits = parseInt(localStorage.hits) + 1;
+    } else {localStorage.hits = 1;}
+
+    alert("Number of clicks this browser") + localStorage.hits
+
+});
+
+}
+
+</script>
+</body>
+</html>
